@@ -13,20 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id Int @id @default(autoincrement())
-  name String
-  email String
-  passoword String?
-  role Role 
-  phone String
-  picture String?
-  status UserStatus @default(INACTIVE)
-  isVerified Boolean @default(false)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  posts Post[]
-}
 
 enum UserStatus{
   ACTIVE 
@@ -39,6 +25,24 @@ enum Role{
   ADMIN 
   USER
 }
+
+
+model User{
+  id Int @id @default(autoincrement())
+  name String
+  email String
+  passoword String?
+  role Role @default(USER)
+  phone String
+  picture String?
+  address String?
+  status UserStatus @default(INACTIVE)
+  isVerified Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts Post[]
+}
+
 
 
 model Post{
