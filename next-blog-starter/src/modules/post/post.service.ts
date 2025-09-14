@@ -14,9 +14,46 @@ const createPost = async(payload:Prisma.PostCreateInput):Promise<Post>=>{
 
 
 // get all post 
-const getAllPost = async()=>{
-
-  const post = await prisma.post.findMany()
+const getAllPost = async(
+  {page,limit,search}:{page:number,limit:number,search:string}
+)=>{
+  
+  const skip = (page - 1) * limit
+  const post = await prisma.post.findMany({
+    skip,
+    take:limit,
+    where:{
+      OR:[
+        {
+          title: {
+            contains: search,
+            mode:"insensitive"
+          }
+        },
+        {
+          content: {
+            contains: search,
+            mode:"insensitive"
+          }
+        },
+      ]
+    },
+    include:{
+        author:{
+            select:{
+                name:true,
+                email:true,
+                address:true,
+                picture:true,
+                phone:true,
+                role:true,
+                isVerified:true,
+                status:true,
+                updatedAt:true
+            }
+        }
+    }
+  })
 
   return post
 }
@@ -25,7 +62,22 @@ const getAllPost = async()=>{
 const getPost = async(id:number)=>{
 
   const post = await prisma.post.findUnique({
-    where: {id}
+    where: {id},
+    include:{
+        author:{
+            select:{
+                name:true,
+                email:true,
+                address:true,
+                picture:true,
+                phone:true,
+                role:true,
+                isVerified:true,
+                status:true,
+                updatedAt:true
+            }
+        }
+    }
   })
 
   return post
