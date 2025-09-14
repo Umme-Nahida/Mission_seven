@@ -13,7 +13,10 @@ const createPost = async (req: Request, res: Response) => {
 
 const getAllPost = async (req: Request, res: Response) => {
     try {
-        const result = await postService.getAllPost()
+        const page = Number(req.query.page) || 1
+        const limit = Number(req.query.limit) || 10;
+        const search = (req.query.search as string)|| ""
+        const result = await postService.getAllPost({page,limit,search})
         res.send(result)
     } catch (err) {
         console.log(err)
