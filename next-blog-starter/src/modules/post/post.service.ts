@@ -15,7 +15,7 @@ const createPost = async(payload:Prisma.PostCreateInput):Promise<Post>=>{
 
 // get all post 
 const getAllPost = async(
-  {page,limit,search}:{page:number,limit:number,search:string}
+  {page,limit,search,featured}:{page:number,limit:number,search:string, featured:boolean}
 )=>{
   
   const skip = (page - 1) * limit
