@@ -15,14 +15,12 @@ const createPost = async(payload:Prisma.PostCreateInput):Promise<Post>=>{
 
 // get all post 
 const getAllPost = async(
-  {page,limit,search,featured}:{page:number,limit:number,search:string, featured:boolean}
+  {page,limit,search,featured}:{page:number,limit:number,search:string, featured?:boolean | undefined}
 )=>{
-  
+  console.log("featured:",featured)
+
   const skip = (page - 1) * limit
-  const post = await prisma.post.findMany({
-    skip,
-    take:limit,
-    where:{
+  const where:any={
       OR:[
         {
           title: {
@@ -37,7 +35,12 @@ const getAllPost = async(
           }
         },
       ]
-    },
+    }
+
+  const post = await prisma.post.findMany({
+    skip,
+    take:limit,
+    where,
     include:{
         author:{
             select:{

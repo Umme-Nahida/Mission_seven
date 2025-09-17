@@ -15,8 +15,9 @@ const getAllPost = async (req: Request, res: Response) => {
     try {
         const page = Number(req.query.page) || 1
         const limit = Number(req.query.limit) || 10;
-        const search = (req.query.search as string)|| ""
-        const result = await postService.getAllPost({page,limit,search})
+        const search = (req.query.search as string)|| "";
+        const featured = req.query.featured ? req.query.featured === "true" : undefined
+        const result = await postService.getAllPost({page,limit,search,featured})
         res.send(result)
     } catch (err) {
         console.log(err)
