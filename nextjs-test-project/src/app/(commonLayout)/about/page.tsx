@@ -1,9 +1,9 @@
 "use-client"
-
+import style from "./about.module.css"
 const AboutPage = () => {
     return (
         <div>
-            this is about pages
+            <h1 className={style.text_color}>this is about pages</h1>
         </div>
     );
 };
