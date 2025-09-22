@@ -18,6 +18,16 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
+          <Link href="/gellery" className="hover:text-gray-200">
+            Gellery
+          </Link>
+        </li>
+        <li>
+          <Link href="/products" className="hover:text-gray-200">
+            Products
+          </Link>
+        </li>
+        <li>
           <Link href="/about" className="hover:text-gray-200">
             About
           </Link>
