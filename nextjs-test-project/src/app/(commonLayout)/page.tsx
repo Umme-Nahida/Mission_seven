@@ -10,11 +10,13 @@ export default function Home() {
   const handlechange = ()=>{
     router.push('/dashboard')
   }
+
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
      
-      welcome to this website 
-      <button onClick={handlechange}>dashboard</button>
+      <h1 className="text-5xl">welcome to this website</h1>
+      
+            <button onClick={handlechange}>dashboard</button>
     </div>
   );
 }
