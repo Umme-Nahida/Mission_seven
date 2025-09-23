@@ -13,6 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model User {
   id         Int        @id @default(autoincrement())
   name       String
@@ -52,4 +53,11 @@ enum UserStatus {
   ACTIVE
   INACTIVE
   BLOCK
+}
+
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  userId Int     @unique
 }

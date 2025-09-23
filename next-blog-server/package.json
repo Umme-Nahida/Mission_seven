@@ -12,8 +12,9 @@
   "author": "Next Level Web Development",
   "license": "ISC",
   "type": "commonjs",
-  "description": "",
+  "description": "A simple **Blog Application Starter Pack** built with **TypeScript, Express.js**.  \r This project is designed for the **Next Level Web Development Bootcamp** to help learners practice Prisma hands-on by building a blog platform.",
   "dependencies": {
+    "@prisma/client": "^6.16.2",
     "compression": "^1.8.1",
     "cors": "^2.8.5",
     "express": "^5.1.0",
@@ -25,6 +26,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^24.2.0",
-    "dotenv": "^17.2.2"
+    "dotenv": "^17.2.2",
+    "prisma": "^6.16.2"
   }
 }
