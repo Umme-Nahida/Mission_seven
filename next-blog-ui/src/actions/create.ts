@@ -1,5 +1,6 @@
 "use server"
 
+import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 
 export const create = async(data:FormData)=>{
@@ -8,7 +9,7 @@ export const create = async(data:FormData)=>{
     const blogInfo = Object.fromEntries(data.entries())
     const modifyData = {
         ...blogInfo,
-        id:10,
+        id:12,
         authorId:2,
         isFeatured: Boolean(blogInfo.isFeatured),
         tags:blogInfo.tags.toString().split(",").map((tag)=>tag.trim())
@@ -24,7 +25,8 @@ export const create = async(data:FormData)=>{
 
     const result = await res.json()
     if(result.id){
-        redirect("/blogs")
+        revalidateTag("refetchBlogs")
+        redirect("/")
     }
     console.log("result---------:",result)
 }

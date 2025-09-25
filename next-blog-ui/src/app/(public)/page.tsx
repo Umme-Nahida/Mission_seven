@@ -4,7 +4,11 @@ import { IPost } from "@/types";
 
 export default async function HomePage() {
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/posts`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/posts`,{
+    next:{
+      tags:["refetchBlogs"]
+    }
+  })
   const {data} = await res.json()
 
   console.log("data:",data)
