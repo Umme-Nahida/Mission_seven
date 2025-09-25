@@ -11,7 +11,7 @@ const AllBlogsPage = async() => {
   console.log("data",data)
   return (
     <div className="py-30 px-4 max-w-7xl mx-auto">
-      <h2 className="text-center text-4xl">All Blogs</h2>
+      <h2 className="text-center text-4xl">All Blogs Abcs</h2>
 
       <div className="grid grid-cols-3 items-center justify-self-center gap-6 mx-10 mt-10">
         {

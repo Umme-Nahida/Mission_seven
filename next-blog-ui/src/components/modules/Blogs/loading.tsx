@@ -3,8 +3,8 @@ import React from 'react';
 
 const BlogsLoadingPage = () => {
     return (
-        <div className='mt-10'>
-            <Loading></Loading>
+        <div className='py-24'>
+            <Loading/>
         </div>
     );
 };
