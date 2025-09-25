@@ -2,7 +2,6 @@ import { IPost } from "@/types";
 import { Description } from "@radix-ui/react-dialog";
 import { time } from "console";
 import Image from "next/image";
-import { title } from "process";
 
 export const generateStaticParams = async()=>{
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/posts`)
