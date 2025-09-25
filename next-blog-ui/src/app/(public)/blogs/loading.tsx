@@ -5,7 +5,7 @@ import React from 'react';
 const BlogsLoadingPage = () => {
     return (
         <div className='py-24'>
-            <Loading/>
+            <Loading/> 
         </div>
     );
 };
