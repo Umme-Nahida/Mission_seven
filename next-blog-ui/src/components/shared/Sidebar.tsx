@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Home, PlusCircle, LogOut } from "lucide-react";
+import { signOut } from "next-auth/react";
 
 export default function Sidebar() {
   return (
@@ -32,7 +33,7 @@ export default function Sidebar() {
           variant="destructive"
           className="w-full justify-start gap-2 cursor-pointer"
           onClick={() => {
-            console.log("Logout clicked");
+            signOut();
           }}
         >
           <LogOut className="h-4 w-4" />
