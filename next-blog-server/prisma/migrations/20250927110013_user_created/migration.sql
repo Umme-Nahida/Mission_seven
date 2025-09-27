@@ -37,20 +37,8 @@ CREATE TABLE "hello-prisma"."Post" (
     CONSTRAINT "Post_pkey" PRIMARY KEY ("id")
 );
 
--- CreateTable
-CREATE TABLE "hello-prisma"."Profile" (
-    "id" SERIAL NOT NULL,
-    "bio" TEXT,
-    "userId" INTEGER NOT NULL,
-
-    CONSTRAINT "Profile_pkey" PRIMARY KEY ("id")
-);
-
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "hello-prisma"."User"("email");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Profile_userId_key" ON "hello-prisma"."Profile"("userId");
 
 -- AddForeignKey
 ALTER TABLE "hello-prisma"."Post" ADD CONSTRAINT "Post_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "hello-prisma"."User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
