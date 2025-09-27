@@ -37,11 +37,21 @@ export default function LoginForm() {
   const onSubmit = async(values: LoginFormValues) => {
     console.log("Login submitted:", values);
     try{
-      const res = await login(values)
-      if(res?.id){
-        toast.success("user login successfully")
-        navigate.push("/")
-      }
+      // const res = await login(values)
+      // if(res?.id){
+      //   toast.success("user login successfully")
+      //   navigate.push("/")
+      // }
+
+      // signIn('credentials',{
+      //   ...values,
+      //   callbackUrl:"/dashboard"
+      // })
+
+       signIn("credentials", {
+        ...values,
+        callbackUrl: "/",
+      });
     }catch(err){console.log(err)}
   };
 

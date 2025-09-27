@@ -1,16 +1,17 @@
 "use server"
 
+import { getUserSession } from "@/helpers/getUserSession"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 
 export const create = async(data:FormData)=>{
-
+    const session = await getUserSession()
     // to conver the data in plain object
     const blogInfo = Object.fromEntries(data.entries())
     const modifyData = {
         ...blogInfo,
         id:12,
-        authorId:2,
+        authorId:session?.user?.id,
         isFeatured: Boolean(blogInfo.isFeatured),
         tags:blogInfo.tags.toString().split(",").map((tag)=>tag.trim())
     }

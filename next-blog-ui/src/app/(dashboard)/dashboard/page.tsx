@@ -1,11 +1,12 @@
 import UserProfileDashboard from "@/components/modules/dashboard/UserProfileDashboard";
 import { authOptions } from "@/helpers/authOptions";
+import { getUserSession } from "@/helpers/getUserSession";
 import { getServerSession } from "next-auth";
 
 const DashboardHomePage =async () => {
 
- const session = await getServerSession(authOptions)
-  //  console.log("session",session)
+ const session = await getUserSession()
+   console.log("session",session)
   
   return (
     <div>

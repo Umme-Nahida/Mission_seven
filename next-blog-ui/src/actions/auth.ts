@@ -12,7 +12,7 @@ export const register = async (data: FieldValues) => {
   const result = await res.json(); 
 
   if (!res.ok) {
-    console.error("User Registration Failed:", result);
+    console.log("User Registration Failed:", result);
     throw new Error(result.message || "Registration failed");
   }
 
@@ -20,7 +20,7 @@ export const register = async (data: FieldValues) => {
 };
 
 export const login = async (data: FieldValues) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/auth/login`, {
+  const res = await fetch(`http://localhost:5000/api/v1/auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -29,6 +29,7 @@ export const login = async (data: FieldValues) => {
   });
 
   const result = await res.json(); 
+  console.log(res)
 
   if (!res.ok) {
     console.error("User Login Failed:", result);

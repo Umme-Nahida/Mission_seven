@@ -2,6 +2,7 @@ import { prisma } from "../../config/db"
 import { Prisma, User } from "@prisma/client"
 
 const loginWithEmailAndPassword = async ({ email, password }: { email: string, password: string }) => {
+    console.log(email,password)
     const user = await prisma.user.findUnique({
         where: {
             email
