@@ -11,8 +11,6 @@ const createPost = async(payload:Prisma.PostCreateInput):Promise<Post>=>{
 }
 
 
-
-
 // get all post 
 const getAllPost = async(
   {page,limit,search,featured}:{page:number,limit:number,search:string, featured?:boolean | undefined}

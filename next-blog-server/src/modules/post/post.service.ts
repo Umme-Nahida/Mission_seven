@@ -1,3 +1,4 @@
+// import { Post, Prisma } from "@prisma/client";
 import { Post, Prisma } from "@prisma/client";
 import { prisma } from "../../config/db";
 
